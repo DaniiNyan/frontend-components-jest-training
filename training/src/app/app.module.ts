@@ -7,6 +7,7 @@ import { CarsComponent } from './cars/cars.component';
 import { MotorcyclesComponent } from './motorcycles/motorcycles.component';
 import { TrucksComponent } from './trucks/trucks.component';
 import { VehicleShopModule } from './vehicle-shop/vehicle-shop.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { VehicleShopModule } from './vehicle-shop/vehicle-shop.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     VehicleShopModule
   ],

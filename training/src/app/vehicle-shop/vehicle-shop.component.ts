@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VehicleShopService } from '../services/vehicle-shop.service';
+import { Vehicle, VehicleFilter, VehicleType } from '../models/vehicle.model';
 
 @Component({
   selector: 'app-vehicle-shop',
@@ -7,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehicleShopComponent {
 
-  constructor() { }
+  public vehicles: Vehicle[] = [];
+  public filters: VehicleFilter = {
+    type: VehicleType.CAR
+  };
+
+  constructor(
+    private vehicleShopService: VehicleShopService
+  ) { }
 
   loadVehicles() {
-    
+    this.vehicleShopService.loadVehicles(this.filters)
+      .subscribe({
+        next: vehicle => {
+          this.vehicles = vehicle;
+        },
+        error: () => {
+          this.vehicles = [];
+          alert('Desculpe, ocorreu um erro inesperado. Tente novamente mais tarde.');
+        }
+      });
   }
 
 }
