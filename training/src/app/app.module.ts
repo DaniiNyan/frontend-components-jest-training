@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CarsComponent } from './cars/cars.component';
 import { MotorcyclesComponent } from './motorcycles/motorcycles.component';
 import { TrucksComponent } from './trucks/trucks.component';
+import { VehicleShopModule } from './vehicle-shop/vehicle-shop.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TrucksComponent } from './trucks/trucks.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    VehicleShopModule
   ],
   providers: [],
   bootstrap: [AppComponent]
